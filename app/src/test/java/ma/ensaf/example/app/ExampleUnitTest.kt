@@ -1,4 +1,4 @@
-package com.firstapp.app
+package ma.ensaf.example.app
 
 import org.junit.Test
 

@@ -1,4 +1,4 @@
-package com.firstapp.app
+package ma.ensaf.example.app
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
