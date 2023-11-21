@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">App</string>
+    <string name="SignUP_text">Create New Account? Sign Up Here</string>
 </resources>
