@@ -19,10 +19,9 @@ import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.AuthCredential
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
 
-class MainActivity : AppCompatActivity() {
+class LoginActivity : AppCompatActivity() {
 
     private lateinit var btnGoogle: ImageView
     private lateinit var createNewAccount: TextView
@@ -53,7 +52,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         createNewAccount.setOnClickListener {
-            startActivity(Intent(this@MainActivity, SignUpActivity::class.java))
+            startActivity(Intent(this@LoginActivity, SignUpActivity::class.java))
         }
 
         btnGoogle = findViewById(R.id.btnGoogle)
@@ -88,11 +87,11 @@ class MainActivity : AppCompatActivity() {
                     if (task.isSuccessful) {
                         progressDialog.dismiss()
                         sendUserToNextActivity()
-                        Toast.makeText(this@MainActivity, "Login Successful", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this@LoginActivity, "Login Successful", Toast.LENGTH_SHORT).show()
                     } else {
                         progressDialog.dismiss()
                         Toast.makeText(
-                            this@MainActivity,
+                            this@LoginActivity,
                             "${task.exception}",
                             Toast.LENGTH_SHORT
                         ).show()
@@ -102,7 +101,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun sendUserToNextActivity() {
-        val intent = Intent(this@MainActivity, SignUpActivity::class.java)
+        val intent = Intent(this@LoginActivity, SignUpActivity::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
         startActivity(intent)
     }
@@ -124,12 +123,12 @@ class MainActivity : AppCompatActivity() {
             FirebaseAuth.getInstance().signInWithCredential(credential)
                 .addOnCompleteListener(this, OnCompleteListener<AuthResult> { googleTask ->
                     if (googleTask.isSuccessful) {
-                        val intent = Intent(applicationContext, MainActivity::class.java)
+                        val intent = Intent(applicationContext, LoginActivity::class.java)
                         startActivity(intent)
                         finish()
                     } else {
                         Toast.makeText(
-                            this@MainActivity,
+                            this@LoginActivity,
                             "Authentication Failed: ${googleTask.exception?.message}",
                             Toast.LENGTH_SHORT
                         ).show()
@@ -138,7 +137,7 @@ class MainActivity : AppCompatActivity() {
 
         } catch (e: ApiException) {
             Toast.makeText(
-                this@MainActivity,
+                this@LoginActivity,
                 "Error retrieving Google account: ${e.message}",
                 Toast.LENGTH_SHORT
             ).show()
@@ -149,7 +148,7 @@ class MainActivity : AppCompatActivity() {
         val user = FirebaseAuth.getInstance().currentUser
         if (user != null) {
             FirebaseAuth.getInstance().signOut()
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
             finish()
         }
