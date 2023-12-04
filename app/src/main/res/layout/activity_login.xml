@@ -107,20 +107,6 @@
                 app:layout_constraintTop_toBottomOf="@+id/forgotPass" />
 
             <TextView
-                android:id="@+id/createNewAccount"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="36dp"
-                android:text="@string/SignUP_text"
-                android:textColor="@color/white"
-                android:textSize="18dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                android:drawableRight="@drawable/baseline_arrow_circle_right_24"
-                android:drawablePadding="5dp"/>
-
-            <TextView
                 android:id="@+id/textView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -152,13 +138,10 @@
                 android:layout_height="50dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
-                android:layout_marginBottom="88dp"
-                app:layout_constraintBottom_toTopOf="@+id/createNewAccount"
                 app:layout_constraintEnd_toStartOf="@+id/btnTwitter"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/btnGoogle"
                 app:layout_constraintTop_toBottomOf="@+id/textView3"
-                app:layout_constraintVertical_bias="0.555"
                 app:srcCompat="@drawable/facebbok_logo" />
 
             <ImageView
