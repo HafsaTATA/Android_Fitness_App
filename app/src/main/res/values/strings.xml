@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">App</string>
+    <string name="default_web_client_id" translatable="false">949103945985-6e2id1373ft2vhjk9dliaurgj4v1fdub.apps.googleusercontent.com</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>
