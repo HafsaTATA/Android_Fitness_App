@@ -6,8 +6,5 @@
     </style>
 
     <style name="Theme.App" parent="Base.Theme.App" />
-    <style name="input_backgound">
-        <item name="cornerRadius">5dp</item>
-        <item name="background">@drawable/input_bg</item>
-    </style>
+
 </resources>

@@ -35,7 +35,7 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-
+        /*
         // move to sign up interface:
         val signUpButton = findViewById<TextView>(R.id.createNewAccount)
 
@@ -76,8 +76,10 @@ class LoginActivity : AppCompatActivity() {
             val signInIntent = client.signInIntent
             startForResult.launch(signInIntent)
         }
-    }
 
+         */
+    }
+/*
     private fun performLogin() {
         val email = inputEmail.text.toString()
         val password = inputPassword.text.toString()
@@ -163,5 +165,5 @@ class LoginActivity : AppCompatActivity() {
             finish()
         }
     }
-
+*/
 }

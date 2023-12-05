@@ -1,29 +1,32 @@
 package com.firstapp.app
 
-import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.ImageView
+import android.content.Intent
+import com.firstapp.app.databinding.ActivityLandingBinding
 
 class LandingActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_landing)
 
-        // Load the original image
-        val originalBitmap = BitmapFactory.decodeResource(resources, R.drawable.landing_button)
+        // Hafsa: just to test code:
+        var binding =ActivityLandingBinding.inflate(layoutInflater) // Update with your actual layout file name
+        setContentView(binding.root)
 
-        // Resize the image
-        val options = BitmapFactory.Options()
-        options.inSampleSize = 2 // Adjust this value to reduce the image size further
+        // Set click listener for the Sign Up button
+        binding.signLanding.setOnClickListener {
+            // Start SignUpActivity when the Sign Up button is clicked
+            val intent = Intent(this, SignUpActivity::class.java)
+            startActivity(intent)
+        }
 
-        // Create a new bitmap with the resized image
-        val resizedBitmap = BitmapFactory.decodeResource(resources, R.drawable.landing_button, options)
+        // Set click listener for the Log In button
+        binding.logLanding.setOnClickListener {
+            // Start LoginActivity when the Log In button is clicked
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+        }
 
-        // Assuming you have an ImageView with the id "imageView" in your layout
-        val imageView: ImageView = findViewById(R.id.imageView)
-
-        // Set the resized bitmap to the ImageView
-        imageView.setImageBitmap(resizedBitmap)
     }
 }
