@@ -4,6 +4,7 @@ import android.app.ProgressDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
@@ -16,43 +17,42 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.OnCompleteListener
+import com.google.android.gms.tasks.OnFailureListener
+import com.google.android.gms.tasks.OnSuccessListener
+import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.AuthCredential
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
+import com.google.firebase.auth.OAuthProvider
 
 class LoginActivity : AppCompatActivity() {
 
-    private lateinit var btnGoogle: ImageView
-    private lateinit var createNewAccount: TextView
+    private lateinit var btnGoogle: Button
+    private lateinit var btnGitHub: Button
     private lateinit var inputEmail: EditText
     private lateinit var inputPassword: EditText
     private lateinit var btnLogin: Button
+    private lateinit var forgotPass: TextView
     private lateinit var progressDialog: ProgressDialog
+    private val emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+".toRegex()
 
     private lateinit var mAuth: FirebaseAuth
     private lateinit var client: GoogleSignInClient
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_login)
 
-        createNewAccount = findViewById(R.id.createNewAccount)
         inputEmail = findViewById(R.id.inputEmail)
         inputPassword = findViewById(R.id.inputPassword)
-        btnLogin = findViewById(R.id.btnLogin)
-
 
         progressDialog = ProgressDialog(this)
         mAuth = FirebaseAuth.getInstance()
 
-
+        btnLogin = findViewById(R.id.btnLogin)
         btnLogin.setOnClickListener {
             performLogin()
-        }
-
-        createNewAccount.setOnClickListener {
-            startActivity(Intent(this@LoginActivity, SignUpActivity::class.java))
         }
 
         btnGoogle = findViewById(R.id.btnGoogle)
@@ -67,12 +67,29 @@ class LoginActivity : AppCompatActivity() {
             startForResult.launch(signInIntent)
         }
 
+        btnGitHub = findViewById(R.id.btnGit)
+        btnGitHub.setOnClickListener(View.OnClickListener {
+            val provider = OAuthProvider.newBuilder("github.com")
+            val pendingResultTask: Task<AuthResult>? = mAuth.pendingAuthResult
+
+            if (pendingResultTask != null) {
+
+            } else {
+                mAuth.startActivityForSignInWithProvider(this@LoginActivity, provider.build())
+                    .addOnSuccessListener(OnSuccessListener<AuthResult> { authResult -> openNextActivity() })
+                    .addOnFailureListener(OnFailureListener { e ->
+                        Toast.makeText(this@LoginActivity, "" + e.message, Toast.LENGTH_SHORT).show()
+                    })
+            }
+        })
+
+
     }
     private fun performLogin() {
         val email = inputEmail.text.toString()
         val password = inputPassword.text.toString()
 
-        if (!email.matches(Regex("[a-zA-Z0-9._-]+@[a-z]+\\.[a-z]+"))) {
+        if (!email.matches(emailPattern)) {
             inputEmail.error = "Enter Connext Email"
         } else if (password.isEmpty() || password.length < 6) {
             inputPassword.error = "Enter Proper Password"
@@ -100,6 +117,11 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
+    private fun openNextActivity() {
+        val intent = Intent(this@LoginActivity, HomeActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+        startActivity(intent)
+    }
     private fun sendUserToNextActivity() {
         val intent = Intent(this@LoginActivity, SignUpActivity::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
