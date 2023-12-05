@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <font-family
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        app:fontProviderAuthority="@string/font_provider_authority"
+        app:fontProviderPackage="@string/font_provider_package"
+        app:fontProviderQuery="@string/font_provider_query">
+
+        <font
+            app:font="@font/inter_regular"
+            app:fontWeight="400"
+            app:fontStyle="normal"/>
+
+        <font
+            app:font="@font/inter_extrabold"
+            app:fontWeight="800"
+            app:fontStyle="normal"/>
+
+        <font
+            app:font="@font/inter_bold"
+            app:fontWeight="700"
+            app:fontStyle="normal"/>
+
+        <font
+            app:font="@font/roboto_medium"
+            app:fontWeight="500"
+            app:fontStyle="normal"/>
+    </font-family>
+</resources>

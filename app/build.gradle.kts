@@ -48,4 +48,6 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 
     implementation ("com.google.android.gms:play-services-auth:20.2.0")
+
+    implementation ("com.github.ismaeldivita:chip-navigation-bar:1.4.0")
 }
