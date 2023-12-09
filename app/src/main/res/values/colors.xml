@@ -9,5 +9,6 @@
     <color name="greenNeon">#B3FB00</color>
     <color name="almostWhite">#F5F5F5</color>
     <color name="barColor">#878787</color>
-    <color name="transparent_green">#1AB3FB00</color>
+    <color name="transparent_green">#21B3FB00</color>
+    <color name="whiteSmoke">#F5F5F5</color>
 </resources>

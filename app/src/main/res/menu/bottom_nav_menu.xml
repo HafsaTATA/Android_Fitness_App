@@ -3,27 +3,24 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/nav_home"
-        android:icon="@drawable/baseline_home_24"
-        android:title="Home"
-        app:cnb_iconColor="@color/greenNeon"
-        />
+        android:icon="@drawable/home_fill"
+        android:title="Home" />
     <item
-        android:id="@+id/nav_profile"
-        android:icon="@drawable/baseline_person_3_24"
-        android:title="Profile"
-        app:cnb_iconColor="@color/greenNeon"/>
+        android:id="@+id/nav_workouts"
+        android:icon="@drawable/gym"
+        android:title="Workouts"
+        app:cnb_iconColor="@color/black"/>
 
     <item
-        android:id="@+id/nav_settings"
-        android:icon="@drawable/baseline_settings_24"
-        android:title="Settings"
-        app:cnb_iconColor="@color/greenNeon"/>
+        android:id="@+id/nav_map"
+        android:icon="@drawable/map"
+        android:title="Map"
+        app:cnb_iconColor="@color/black"/>
 
     <item
         android:id="@+id/nav_shopping"
-        android:icon="@drawable/baseline_shopping_cart_24"
-        android:title="Shopping"
-        app:cnb_iconColor="@color/greenNeon"
-        app:showAsAction="ifRoom"/>
+        android:icon="@drawable/account"
+        android:title="Account"
+        app:cnb_iconColor="@color/black" />
 
 </menu>
