@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bottomSheet"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="300dp"
+    android:background="@drawable/dialog_bg"
+    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/minimizeIcon"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|top"
+            android:scaleType="fitXY"
+            android:src="@drawable/baseline_minimize_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="145dp"
+            tools:layout_editor_absoluteY="0dp" />
+
+        <TextView
+            android:id="@+id/whereToTextView"
+            android:layout_width="272dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="20dp"
+            android:text="Where do you want to sport center"
+            android:textColor="@color/white"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.134"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/minimizeIcon" />
+
+
+        <TextView
+            android:id="@+id/greenPlace"
+            android:layout_width="349dp"
+            android:layout_height="50dp"
+            android:layout_marginVertical="5dp"
+            android:background="@drawable/input_bg"
+            android:drawableLeft="@drawable/baseline_location_on_24"
+            android:drawablePadding="5dp"
+            android:fontFamily="@font/inter_regular"
+            android:gravity="center_vertical|start"
+            android:hint="Espaces vertes"
+            android:paddingHorizontal="10dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textSize="18dp"
+            app:layout_constraintBottom_toTopOf="@+id/gym"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.192"
+            app:layout_constraintStart_toStartOf="@+id/whereToTextView"
+            app:layout_constraintTop_toBottomOf="@+id/whereToTextView"
+            app:layout_constraintVertical_bias="0.522" />
+
+        <TextView
+            android:id="@+id/gym"
+            android:layout_width="347dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="32dp"
+            android:background="@drawable/input_bg"
+            android:drawableLeft="@drawable/baseline_location_on_24"
+            android:drawablePadding="5dp"
+            android:fontFamily="@font/inter_regular"
+            android:gravity="center_vertical|start"
+            android:hint="Salles de sport"
+            android:paddingHorizontal="10dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textSize="18dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/greenPlace" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>

@@ -7,4 +7,6 @@
     <string name="open_drawer">Open Drawer</string>
     <string name="close_drawer">Close Drawer</string>
 
+    <string name="my_map_api_key">AIzaSyBgEtyT2Iol6Mspvbfh5swKUh_dr0DyuWw</string>
+
 </resources>
