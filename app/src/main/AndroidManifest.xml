@@ -12,7 +12,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.App"
         tools:targetApi="31">
-
+        <activity
+            android:name=".BodyOptions"
+            android:exported="false" />
+        <activity
+            android:name=".ShppingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".HomeActivity"
+            android:exported="false" />
         <activity
             android:name=".LandingActivity"
             android:exported="false" />
@@ -30,7 +38,7 @@
             android:exported="false" />
         <activity
             android:name=".LoginActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
     </application>
 
 </manifest>

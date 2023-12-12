@@ -1,32 +1,28 @@
 package com.firstapp.app
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.content.Intent
-import com.firstapp.app.databinding.ActivityLandingBinding
+import android.widget.Button
+import android.widget.TextView
 
 class LandingActivity : AppCompatActivity() {
+    private lateinit var btnLogin: Button
+    private lateinit var btnSignUp: TextView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_landing)
 
-        // Hafsa: just to test code:
-        var binding =ActivityLandingBinding.inflate(layoutInflater) // Update with your actual layout file name
-        setContentView(binding.root)
 
-        // Set click listener for the Sign Up button
-        binding.signLanding.setOnClickListener {
-            // Start SignUpActivity when the Sign Up button is clicked
-            val intent = Intent(this, SignUpActivity::class.java)
-            startActivity(intent)
+        btnLogin = findViewById(R.id.log_landing)
+        btnSignUp = findViewById(R.id.sign_landing)
+
+        btnLogin.setOnClickListener {
+            startActivity(Intent(this@LandingActivity, LoginActivity::class.java))
         }
 
-        // Set click listener for the Log In button
-        binding.logLanding.setOnClickListener {
-            // Start LoginActivity when the Log In button is clicked
-            val intent = Intent(this, LoginActivity::class.java)
-            startActivity(intent)
+        btnSignUp.setOnClickListener {
+            startActivity(Intent(this@LandingActivity, SignUpActivity::class.java))
         }
-
     }
 }

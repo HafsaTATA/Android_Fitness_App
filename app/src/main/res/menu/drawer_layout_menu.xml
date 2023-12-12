@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item android:id="@+id/home"
+            android:title="Home"></item>
+    </group>
+
+    <item android:title="Profile">
+        <menu>
+            <group>
+                <item android:id="@+id/logout"
+                    android:title="Logout"></item>
+                <item android:id="@+id/google_map"
+                    android:title="Google Map"></item>
+            </group>
+        </menu>
+    </item>
+
+    <item android:title="Communicate">
+        <menu>
+            <group>
+                <item android:id="@+id/share"
+                    android:title="Share"></item>
+                <item android:id="@+id/rateUs"
+                    android:title="Rate Us"></item>
+            </group>
+        </menu>
+    </item>
+</menu>

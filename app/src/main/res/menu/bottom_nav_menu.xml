@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" >
+
+    <item
+        android:id="@+id/nav_home"
+        android:icon="@drawable/home_fill"
+        android:title="Home"
+        android:tint="@color/black"/>
+    <item
+        android:id="@+id/nav_workouts"
+        android:icon="@drawable/gym"
+        android:title="Workouts"
+        android:tint="@color/black"/>
+
+    <item
+        android:id="@+id/nav_map"
+        android:icon="@drawable/map"
+        android:title="Map"
+        android:tint="@color/black"/>
+
+    <item
+        android:id="@+id/nav_shopping"
+        android:icon="@drawable/account"
+        android:title="Account"
+        android:tint="@color/black"/>
+
+</menu>

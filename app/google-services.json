@@ -1,0 +1,76 @@
+{
+  "project_info": {
+    "project_number": "949103945985",
+    "project_id": "fitness-android-studio-id",
+    "storage_bucket": "fitness-android-studio-id.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:949103945985:android:4614774c5b7b7ea2179300",
+        "android_client_info": {
+          "package_name": "com.firstapp.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "949103945985-7n99n2hhev5ep4u5injra91ksjgnqvfj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.firstapp.app",
+            "certificate_hash": "cd44a00803212878e22020882855b28648ebce7d"
+          }
+        },
+        {
+          "client_id": "949103945985-6e2id1373ft2vhjk9dliaurgj4v1fdub.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCHLyzk_FD-2nUtpiy64e7EHwWSAmg1qRQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "949103945985-6e2id1373ft2vhjk9dliaurgj4v1fdub.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:949103945985:android:7ab36503540955df179300",
+        "android_client_info": {
+          "package_name": "ma.ensaf.example.tp3"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "949103945985-6e2id1373ft2vhjk9dliaurgj4v1fdub.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCHLyzk_FD-2nUtpiy64e7EHwWSAmg1qRQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "949103945985-6e2id1373ft2vhjk9dliaurgj4v1fdub.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -8,5 +8,5 @@
     <color name="almostWhite">#F5F5F5</color>
     <color name="barColor">#878787</color>
     <color name="transparent_green">#1AB3FB00</color>
-
+    <color name="bottom_bar">#21B3FB00</color>
 </resources>
