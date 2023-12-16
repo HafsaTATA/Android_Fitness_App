@@ -9,20 +9,15 @@ import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
+import com.google.firebase.auth.FirebaseAuth
 
 class HomeActivity : AppCompatActivity() {
 
-    private var drawerLayout: DrawerLayout? = null
-    private var navigationView: NavigationView? = null
+    private lateinit var drawerLayout: DrawerLayout
+    private lateinit var navigationView: NavigationView
 
-    private var drawerToggle: ActionBarDrawerToggle? = null
+    lateinit var toggle: ActionBarDrawerToggle
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (drawerToggle?.onOptionsItemSelected(item) == true) {
-            return true
-        }
-        return super.onOptionsItemSelected(item)
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,9 +26,11 @@ class HomeActivity : AppCompatActivity() {
         drawerLayout = findViewById(R.id.drawer_layout)
         navigationView = findViewById(R.id.nav_view)
 
-        drawerToggle = ActionBarDrawerToggle(this, drawerLayout, R.string.open_drawer, R.string.close_drawer)
-        drawerLayout?.addDrawerListener(drawerToggle!!)
-        drawerToggle?.syncState()
+        toggle = ActionBarDrawerToggle(this, drawerLayout, R.string.open_drawer, R.string.close_drawer)
+        drawerLayout.addDrawerListener(toggle)
+        toggle.syncState()
+
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         val bottomNavView: BottomNavigationView = findViewById(R.id.bottomNavView)
 
@@ -44,6 +41,8 @@ class HomeActivity : AppCompatActivity() {
                 }
 
                 R.id.nav_workouts -> {
+                    val intent = Intent(this, BodyOptionsActivity::class.java)
+                    startActivity(intent)
                     return@setOnNavigationItemSelectedListener true
                 }
 
@@ -52,8 +51,9 @@ class HomeActivity : AppCompatActivity() {
                     startActivity(intent)
                     return@setOnNavigationItemSelectedListener true
                 }
-
-                R.id.nav_shopping -> {
+                R.id.nav_shopping ->{
+                    val intent = Intent(this, ShoppingActivity::class.java)
+                    startActivity(intent)
                     return@setOnNavigationItemSelectedListener true
                 }
 
@@ -61,12 +61,33 @@ class HomeActivity : AppCompatActivity() {
             }
         }
 
-    }
-    override fun onBackPressed() {
-        if (drawerLayout?.isDrawerOpen(GravityCompat.START) == true) {
-            drawerLayout?.closeDrawer(GravityCompat.START)
-        } else {
-            super.onBackPressed()
+        navigationView.setNavigationItemSelectedListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.home -> {
+                    return@setNavigationItemSelectedListener true
+                }
+
+                R.id.shopping -> {
+                    val intent = Intent(this, ShoppingActivity::class.java)
+                    startActivity(intent)
+                    return@setNavigationItemSelectedListener true
+                }
+
+                R.id.google_map -> {
+                    val intent = Intent(this, MapsActivity::class.java)
+                    startActivity(intent)
+                    return@setNavigationItemSelectedListener true
+                }
+
+                else -> false
+            }
         }
+
+    }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (toggle.onOptionsItemSelected(item)) {
+            return true
+        }
+        return super.onOptionsItemSelected(item)
     }
 }

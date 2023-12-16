@@ -27,7 +27,6 @@ import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.OAuthProvider
 
 class LoginActivity : AppCompatActivity() {
-
     private lateinit var btnGoogle: Button
     private lateinit var btnGitHub: Button
     private lateinit var inputEmail: EditText
@@ -43,10 +42,10 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+        setContentView(R.layout.activity_login)
 
         inputEmail = findViewById(R.id.inputEmail)
         inputPassword = findViewById(R.id.inputPassword)
-
         progressDialog = ProgressDialog(this)
         mAuth = FirebaseAuth.getInstance()
 
@@ -61,7 +60,6 @@ class LoginActivity : AppCompatActivity() {
             .requestEmail()
             .build()
         client = GoogleSignIn.getClient(this, options)
-
         btnGoogle.setOnClickListener {
             val signInIntent = client.signInIntent
             startForResult.launch(signInIntent)
@@ -76,7 +74,7 @@ class LoginActivity : AppCompatActivity() {
 
             } else {
                 mAuth.startActivityForSignInWithProvider(this@LoginActivity, provider.build())
-                    .addOnSuccessListener(OnSuccessListener<AuthResult> { authResult -> openNextActivity() })
+                    .addOnSuccessListener(OnSuccessListener<AuthResult> { authResult -> openHomeActivity() })
                     .addOnFailureListener(OnFailureListener { e ->
                         Toast.makeText(this@LoginActivity, "" + e.message, Toast.LENGTH_SHORT).show()
                     })
@@ -84,7 +82,10 @@ class LoginActivity : AppCompatActivity() {
         })
 
 
+
+
     }
+
     private fun performLogin() {
         val email = inputEmail.text.toString()
         val password = inputPassword.text.toString()
@@ -98,12 +99,11 @@ class LoginActivity : AppCompatActivity() {
             progressDialog.setTitle("Login")
             progressDialog.setCanceledOnTouchOutside(false)
             progressDialog.show()
-
             mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, OnCompleteListener<AuthResult> { task ->
                     if (task.isSuccessful) {
                         progressDialog.dismiss()
-                        sendUserToNextActivity()
+                        openHomeActivity()
                         Toast.makeText(this@LoginActivity, "Login Successful", Toast.LENGTH_SHORT).show()
                     } else {
                         progressDialog.dismiss()
@@ -117,7 +117,7 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    private fun openNextActivity() {
+    private fun openHomeActivity() {
         val intent = Intent(this@LoginActivity, HomeActivity::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
         startActivity(intent)
@@ -127,7 +127,6 @@ class LoginActivity : AppCompatActivity() {
         intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
         startActivity(intent)
     }
-
     private val startForResult: ActivityResultLauncher<Intent> =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == RESULT_OK) {
@@ -156,7 +155,6 @@ class LoginActivity : AppCompatActivity() {
                         ).show()
                     }
                 })
-
         } catch (e: ApiException) {
             Toast.makeText(
                 this@LoginActivity,
@@ -176,4 +174,3 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 }
-

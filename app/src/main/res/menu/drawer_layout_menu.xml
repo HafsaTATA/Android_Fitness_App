@@ -3,6 +3,10 @@
     <group android:checkableBehavior="single">
         <item android:id="@+id/home"
             android:title="Home"></item>
+        <item android:id="@+id/shopping"
+            android:title="Shopping"></item>
+        <item android:id="@+id/google_map"
+            android:title="Google map"></item>
     </group>
 
     <item android:title="Profile">
@@ -10,8 +14,7 @@
             <group>
                 <item android:id="@+id/logout"
                     android:title="Logout"></item>
-                <item android:id="@+id/google_map"
-                    android:title="Google Map"></item>
+
             </group>
         </menu>
     </item>
