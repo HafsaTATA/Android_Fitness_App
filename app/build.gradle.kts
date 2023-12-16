@@ -2,6 +2,7 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("com.google.gms.google-services")
+    id("com.google.android.libraries.mapsplatform.secrets-gradle-plugin")
 }
 
 android {
@@ -48,6 +49,7 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 
     implementation ("com.google.android.gms:play-services-auth:20.2.0")
+    implementation ("com.google.android.gms:play-services-maps:18.2.0")
 
     implementation ("com.github.ismaeldivita:chip-navigation-bar:1.4.0")
 }

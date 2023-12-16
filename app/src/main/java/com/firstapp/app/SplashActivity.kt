@@ -26,7 +26,7 @@ class SplashActivity : AppCompatActivity() {
         //pass to login landingInterface:
         val handler = Handler()
         handler.postDelayed({
-            startActivity(Intent(this@SplashActivity, HomeActivity::class.java))
+            startActivity(Intent(this@SplashActivity, LandingActivity::class.java))
             finish()
         }, 2000)
     }
