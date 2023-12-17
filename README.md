@@ -9,6 +9,6 @@
 ![LoginSignUp](https://github.com/HafsaTATA/Android_Fitness_App/assets/122269840/be9d777b-1afd-4862-9263-e998a2a9fef6)
 
 
-
+##
 
 ![HomeSquelette](https://github.com/HafsaTATA/Android_Fitness_App/assets/122269840/23fe2184-7472-4067-b240-52e39c995ab0)
